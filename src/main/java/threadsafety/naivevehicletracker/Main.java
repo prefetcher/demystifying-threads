@@ -20,7 +20,7 @@ public class Main {
         VehicleDespatcher vehicleDespatcher = new VehicleDespatcher(vehicleTracker);
         TrackerGui trackerGui = new TrackerGui(vehicleTracker);
 
-        ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(vehicles.size() + 10);
+        ScheduledExecutorService threadPool = Executors.newScheduledThreadPool(vehicles.size() + 1);
         try {
             for (Vehicle vehicle : vehicles) {
                     threadPool.scheduleAtFixedRate(() -> vehicleDespatcher.updateVehiclePosition(vehicle), 0, MOVE_INTERVAL_MS, TimeUnit.MILLISECONDS);
